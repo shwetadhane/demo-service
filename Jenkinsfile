@@ -10,7 +10,7 @@ pipeline {
 
       agent any
     stages {
-        stage('Checkout Source') {
+        stage('Checkout Source ') {
             steps {
                 git 'https://github.com/shwetadhane/demo-service.git'
             }

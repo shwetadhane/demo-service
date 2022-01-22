@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-service
+  namespace: default
+  labels:
+    app: demo-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: demo-service
+      labels:
+        app: demo-service
+        role: rolling-update
+    spec:
+      containers:
+        - name: demo-service
+          image: pradnyilk/demo-service:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8081
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: default
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: demo-service

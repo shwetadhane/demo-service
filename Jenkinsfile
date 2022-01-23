@@ -21,14 +21,14 @@ pipeline {
                 sh 'mvn -DskipTests=true clean install'
             }
         }
-        stage('Deploy App to Kubernetes') {
-            steps{
-                script {
-                    kubernetesDeploy( configs: "demo-service-k8s-deployment.yaml", kubeconfigId: "k8s")
-                    kubernetesDeploy( configs: "demo-service-k8s-svc.yaml", kubeconfigId: "k8s")
-                }
-            }
-        }
+//         stage('Deploy App to Kubernetes') {
+//             steps{
+//                 script {
+//                     kubernetesDeploy( configs: "demo-service-k8s-deployment.yaml", kubeconfigId: "k8s")
+//                     kubernetesDeploy( configs: "demo-service-k8s-svc.yaml", kubeconfigId: "k8s")
+//                 }
+//             }
+//         }
         stage('Rollout Latest changes to k8s') {
             steps{
                 withKubeConfig([credentialsId: 'jenkins-robot-global']) {

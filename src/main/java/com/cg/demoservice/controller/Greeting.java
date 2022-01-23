@@ -17,6 +17,6 @@ public class Greeting {
     public String doCheck(){
 
         List<String> service = discoveryClient.getServices();
-        return "This is check no: 1 "+service;
+        return "This is check no: 2 "+service;
     }
 }

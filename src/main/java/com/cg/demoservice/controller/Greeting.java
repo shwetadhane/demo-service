@@ -5,6 +5,7 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -17,6 +18,11 @@ public class Greeting {
     public String doCheck(){
 
         List<String> service = discoveryClient.getServices();
-        return "This is check no: 2 "+service;
+
+        URI uri = discoveryClient.getInstances("demo-service").stream()
+                .map(si->si.getUri()).findFirst().map(s->s.resolve("/check")).get();
+
+
+        return "This is check no: 2 "+service +" URL : " +uri;
     }
 }

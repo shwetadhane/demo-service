@@ -13,7 +13,7 @@ spring:
       enabled: true
       config:
         enabled: true
-      host: hashicorp-consul-server
+      host: consul-consul-server
       port: 8500
 server:
   port: 8081

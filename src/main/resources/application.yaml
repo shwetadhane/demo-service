@@ -5,7 +5,12 @@ spring:
   application:
     name: demo-service
   cloud:
+    bus:
+      enabled: false
     consul:
+      enabled: false
+      config:
+        enabled: false
       host: consul-consul-server
       port: 8500
 server:

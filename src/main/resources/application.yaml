@@ -6,15 +6,15 @@ spring:
     name: demo-service
   cloud:
     bus:
-      enabled: false
+      enabled: true
     discovery:
-      enabled: false
+      enabled: true
     consul:
-      enabled: false
+      enabled: true
       config:
-        enabled: false
-#      host: localhost
-#      port: 8500
+        enabled: true
+      host: hashicorp-consul-server
+      port: 8500
 server:
   port: 8081
 

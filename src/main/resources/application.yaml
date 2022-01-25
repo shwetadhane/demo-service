@@ -5,9 +5,16 @@ spring:
   application:
     name: demo-service
   cloud:
+    bus:
+      enabled: false
+    discovery:
+      enabled: false
     consul:
-      host: consul-consul-server
-      port: 8500
+      enabled: false
+      config:
+        enabled: false
+#      host: localhost
+#      port: 8500
 server:
   port: 8081
 
